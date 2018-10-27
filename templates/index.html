@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Xeckathon-Sudoku</title>
+    <link rel="stylesheet" href="./../static/style.css">
+    <link href="./../static/bootstrap.min.css" rel="stylesheet">
+    <link href="./../static/index.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h3 class="text-muted">Xeckathon - 2018</h3>
+      </div>
+    <div class="jumbotron">
+      {% if msg %}
+        <h1>{{ msg }}</h1>
+        <div class="form-signin">
+          <a href="{{ url_for('index') }}"><input type="button" class="btn btn-lg btn-primary btn-block" value="Home"></a>
+        </div>  
+      {% else %}
+      <form class="form-signin" action="{{ url_for('index') }}" method="post">
+      <h5 class="error">Enter your name : </h5>
+      <input type="username" name="user_name" class="form-control" required>
+      <table>
+        <tr>
+          <td> <input type="Text" name="00" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required> </td>
+          <td> E </td>
+          <td> <input type="Text" name="02" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> T </td>
+          <td> <input type="Text" name="04" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> O </td>
+          <td> <input type="Text" name="06" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="07" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="08" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+        </tr>
+        <tr>
+          <td> A </td>
+          <td> O </td>
+          <td> <input type="Text" name="12" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="13" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="14" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> N </td>
+          <td> H </td>
+          <td> <input type="Text" name="17" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="18" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+        </tr>
+        <tr>
+          <td> <input type="Text" name="20" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="21" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="22" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="23" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> K </td>
+          <td> <input type="Text" name="25" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="26" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="27" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="28" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+        </tr>
+        <tr>
+          <td> C </td>
+          <td> H </td>
+          <td> <input type="Text" name="32" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="33" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="34" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="35" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> A </td>
+          <td> <input type="Text" name="37" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="38" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+        </tr>
+        <tr>
+          <td> T </td>
+          <td> <input type="Text" name="41" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="42" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="43" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="44" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="45" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="46" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="47" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> K </td>
+        </tr>
+        <tr>
+          <td> <input type="Text" name="50" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="51" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> O </td>
+          <td> <input type="Text" name="53" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="54" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="55" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="56" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> X </td>
+          <td> C </td>
+        </tr>
+        <tr>
+          <td> <input type="Text" name="60" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="61" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="62" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="63" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> E </td>
+          <td> <input type="Text" name="65" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="66" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="67" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="68" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+        </tr>
+        <tr>
+          <td> <input type="Text" name="70" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="71" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> N </td>
+          <td> O </td>
+          <td> <input type="Text" name="74" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="75" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="76" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> C </td>
+          <td> T </td>
+        </tr>
+        <tr>
+          <td> <input type="Text" name="80" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="81" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> <input type="Text" name="82" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> C </td>
+          <td> <input type="Text" name="84" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> T </td>
+          <td> <input type="Text" name="86" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+          <td> N </td>
+          <td> <input type="Text" name="88" maxlength="1" align="middle" pattern="[x,e,c,k,a,t,h,o,n,X,E,C,K,A,T,H,O,N,E]" style="text-transform:uppercase" required>  </td>
+        </tr>
+      </table>
+    <p>&nbsp;&nbsp;Hint : letters possible - X,E,C,K,A,T,H,O,N</p>
+    <input type="submit" class="btn btn-lg btn-primary btn-block" value="Submit">
+    </form>
+    {% endif %}
+    </div>
+    <footer class="footer">
+      <p>&copy; Innovation Lab 2018</p>
+    </footer>
+  </div>
+  </body>
+</html>
